@@ -33,3 +33,6 @@ $ git push -u origin HerculesSDK/dev/yurui/yolov8:HerculesSDK/dev/yurui/yolov8_s
 Git checkout -b <分支名称> 创建本地新分支 HerculesSDK/dev/yurui/yolov8
 Git checkout <分支名称> 切换分支
 
+#### 删除
+
+git restore --stage *.o

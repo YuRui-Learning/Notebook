@@ -49,3 +49,25 @@ docker容器
 /tmp/pycharm_project_453/src/data/standing_long_jump
 docker cp /home/sport/label_with_count d25356fac679:/tmp/pycharm_project_453/src/data/rope_skiping
 
+#### docker 导出
+
+docker export docker_id > *.tar
+
+#### docker 扩容
+
+1、df -h 查看磁盘空间
+
+2、df -hl /var/lib/docker 查看docker所在目录空间大小
+
+3、vim /usr/lib/systemd/system/docker.service
+
+#在ExecStart=/usr/bin/dockerd 后面增加--data root /home/docker_data，注:/home/docker_data 需要自己创建 docker_data为我指定的存储空间
+
+4、重启docker
+
+systemctl daemon-reload
+
+systemctl enable docker
+
+5、查看配置   
+docker info | grep -i "docker root dir"

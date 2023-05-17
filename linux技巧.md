@@ -32,3 +32,21 @@ git reset --hard HEAD^ 回退一个版本，^表示版本个数
 git log：分支变换情况
 
 git reflog 分支切换过程
+
+#### 版本更新
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt update
+
+#### 内存
+
+df -h
+
+#### 显卡
+
+lspci | grep VGA
+
+#### 密码
+
+sudo passwd root 

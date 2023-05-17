@@ -72,7 +72,16 @@ def dic_to_csv(dic_data):
 dic_to_csv(write_file)
 ```
 
+# 终端输入
 
+### 
+
+```
+from sys import stdin
+for line in stdin:
+	op,user_id,username,score = line.split('_ ')
+
+```
 
 # 地址
 
@@ -142,7 +151,84 @@ filt_list =  denoise(input_list,len(input_list),3)
 
 
 
+# method
 
+### classmethod
+
+```python3
+class Data_test2(object):
+    day=0
+    month=0
+    year=0
+    def __init__(self,year=0,month=0,day=0):
+        self.day=day
+        self.month=month
+        self.year=year
+
+    @classmethod
+    def get_date(cls, string_date):
+        #这里第一个参数是cls， 表示调用当前的类名
+        year,month,day=map(int,string_date.split('-'))
+        date1=cls(year,month,day)
+        #返回的是一个初始化后的类
+        return date1
+
+    def out_date(self):
+        print "year :"
+        print self.year
+        print "month :"
+        print self.month
+        print "day :"
+        print self.day
+```
+
+这样的好处就是你以后重构类的时候不必要修改构造函数，只需要额外添加你要处理的函数
+
+在已写好初始类的情况下，想给初始类再新添功能，不需要改初始类，只要在下一个类内部新写一个方法，方法用@classmethod装饰一下即可。
+
+```python3
+# 初始类：
+class Data_test(object):
+    day=0
+    month=0
+    year=0
+    def __init__(self,year=0,month=0,day=0):
+        self.day=day
+        self.month=month
+        self.year=year
+
+    def out_date(self):
+        print "year :"
+        print self.year
+        print "month :"
+        print self.month
+        print "day :"
+        print self.day
+
+# 新增功能：
+class Str2IntParam(Data_test):
+    @classmethod
+    def get_date(cls, string_date):
+        #这里第一个参数是cls， 表示调用当前的类名
+        year,month,day=map(int,string_date.split('-'))
+        date1=cls(year,month,day)
+        #返回的是一个初始化后的类
+        return date1
+
+# 使用：
+r = Str2IntParam.get_date("2016-8-1")
+r.out_date()
+
+# 输出：
+year :
+2016
+month :
+8
+day :
+1
+```
+
+新增的功能get_date，初始类Data_test不需要改变，在Str2IntParam类里面修改就好了，Str2IntParam继承Data_test。
 
 # Ancoda
 

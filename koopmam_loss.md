@@ -8,39 +8,39 @@
 
 ### 多步预测损失函数
 
-![image-20230505110302578](C:\Users\yurui\AppData\Roaming\Typora\typora-user-images\image-20230505110302578.png)
+![image-20230505204017227](C:\Users\18423\AppData\Roaming\Typora\typora-user-images\image-20230505204017227.png)
 
 其中rx,p是第p步预测误差，K[p]是xt开始超前p步状态
 
-![image-20230505110457261](C:\Users\yurui\AppData\Roaming\Typora\typora-user-images\image-20230505110457261.png)
+![image-20230505204034231](C:\Users\18423\AppData\Roaming\Typora\typora-user-images\image-20230505204034231.png)
 
 故沿p个时间步长预测误差和，loss定义为
 
-![image-20230505110617732](C:\Users\yurui\AppData\Roaming\Typora\typora-user-images\image-20230505110617732.png)
+![image-20230505204048913](C:\Users\18423\AppData\Roaming\Typora\typora-user-images\image-20230505204048913.png)
 
 ### 观测空间的预测误差
 
 最小化提升空间中的状态演化和从真实动态中提升状态序列映射的误差
 
-![image-20230505110743569](C:\Users\yurui\AppData\Roaming\Typora\typora-user-images\image-20230505110743569.png)
+![image-20230505204227520](C:\Users\18423\AppData\Roaming\Typora\typora-user-images\image-20230505204227520.png)
 
 ###  解码器的损失函数
 
-![image-20230505110842308](C:\Users\yurui\AppData\Roaming\Typora\typora-user-images\image-20230505110842308.png)
+![image-20230505204200939](C:\Users\18423\AppData\Roaming\Typora\typora-user-images\image-20230505204200939.png)
 
 同时为了保证鲁棒性，采用无穷范数作为损失函数：
 
-![image-20230505110957969](C:\Users\yurui\AppData\Roaming\Typora\typora-user-images\image-20230505110957969.png)
+![image-20230505204136348](C:\Users\18423\AppData\Roaming\Typora\typora-user-images\image-20230505204136348.png)
 
 ### 整体误差
 
-![image-20230505111128336](C:\Users\yurui\AppData\Roaming\Typora\typora-user-images\image-20230505111128336.png)
+![image-20230505204242263](C:\Users\18423\AppData\Roaming\Typora\typora-user-images\image-20230505204242263.png)
 
-![image-20230505111136341](C:\Users\yurui\AppData\Roaming\Typora\typora-user-images\image-20230505111136341.png)
+![image-20230505204256083](C:\Users\18423\AppData\Roaming\Typora\typora-user-images\image-20230505204256083.png)
 
 a1-a6为权重，||θ||^2其为为l2正则化项，用于避免过拟合
 
-![image-20230505111539800](C:\Users\yurui\AppData\Roaming\Typora\typora-user-images\image-20230505111539800.png)
+![image-20230505204315758](C:\Users\18423\AppData\Roaming\Typora\typora-user-images\image-20230505204315758.png)
 
 4、模型输入X和U，但是这个是p的X和P-1的U，那这个是从1-P的数据，还是第p个数据，如果是1-p的话每次数据都不一样吗？
 
@@ -56,7 +56,7 @@ a1-a6为权重，||θ||^2其为为l2正则化项，用于避免过拟合
 
 MLP方法的结构选择为[n + m 32 64 128 128 64 32 n]。在比较中考虑了两种情况。在第一种场景中，所有参数都作为需要学习的优化变量，而在第二种场景中，在Deep EDMD和mlp中分别增加了一个隐藏层，权重和偏差在整个训练过程中以正态分布随机更新。用θM参数化MLP的权值和偏置，给出MLP的损失函数为
 
-![image-20230505113255837](C:\Users\yurui\AppData\Roaming\Typora\typora-user-images\image-20230505113255837.png)
+![image-20230505204403664](C:\Users\18423\AppData\Roaming\Typora\typora-user-images\image-20230505204403664.png)
 
 第一项表示多步预测损失。第二项是无限范数，用于惩罚预测的最大误差，最后一项是l2正则化项，用于避免过度拟合
 
