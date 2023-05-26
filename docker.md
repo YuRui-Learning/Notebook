@@ -71,3 +71,15 @@ systemctl enable docker
 
 5、查看配置   
 docker info | grep -i "docker root dir"
+
+### docker导入问题
+
+docker load失败
+
+![image-20230519102122371](C:\Users\yurui\AppData\Roaming\Typora\typora-user-images\image-20230519102122371.png)
+
+open /home/docker_file/tmp/docker-import-251271253/TensorRT-8.0.1.6/json: no such file or directory
+
+![image-20230519102153669](C:\Users\yurui\AppData\Roaming\Typora\typora-user-images\image-20230519102153669.png)
+
+cat video1.tar | docker import - video即可

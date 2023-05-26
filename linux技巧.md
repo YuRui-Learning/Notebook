@@ -7,6 +7,8 @@ nvidia -smi
 top查看进程
 kill PID
 
+kill -9 pid强制杀
+
 ##### 文件
 
 Linux下 ls查看目录，windows下是dir
