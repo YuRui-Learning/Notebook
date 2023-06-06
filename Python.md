@@ -74,14 +74,24 @@ dic_to_csv(write_file)
 
 # 终端输入
 
-### 
-
 ```
 from sys import stdin
 for line in stdin:
 	op,user_id,username,score = line.split('_ ')
 
 ```
+
+# Pandas
+
+字典写csv
+
+```
+pd.DataFrame(dic_data).to_csv('Output.csv')
+```
+
+
+
+
 
 # 地址
 
@@ -91,6 +101,18 @@ for line in stdin:
 import os
 print (os.getcwd())#获得当前目录
 ```
+
+### 地址拼接
+
+因为在读数据时候会有不同数据地址不一样，比如一个目录下多个文件夹所以会需要在循环中每次更新中间一个路径就需要用到字符串拼接，其用path方法拼接，中间用 ’/‘区分，比如下列，rope_skipping_count是个文件夹，其trace_id_dir是子目录每个放数据文件夹名字，在该目录下有两个csv。所以每次读取每个csv时候都需要对其进行分别读取，所以按照如下操作。
+
+```
+data_path = os.path.join('rope_skipping_count', trace_id_dir)
+person_data = os.path.join(data_path, 'person.csv')
+rope_data = os.path.join(data_path, 'rope.csv')
+```
+
+
 
 
 
@@ -105,8 +127,6 @@ end = time.time()
 running_time = end-start
 print('time cost : %.5f sec' %running_time)
 ```
-
-
 
 
 
@@ -255,3 +275,25 @@ conda install tensorflow==1.15.0
 #### 删除虚拟环境
 
 conda env remove --name Koopman
+
+# 库安装
+
+## pycocotools
+
+ERROR: Failed building wheel for pycocotools
+subprocess-exited-with-error
+legacy-install-failure
+Encountered error while trying to install package.
+![在这里插入图片描述](https://img-blog.csdnimg.cn/6164caedd16346ccb37f6f5d3121f2ae.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA6bih5Lid57Gz57q_,size_20,color_FFFFFF,t_70,g_se,x_16)
+
+pip install pycocotools-windows -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+下载一下压缩包
+
+[下载](https://link.csdn.net/?target=https%3A%2F%2Fpan.baidu.com%2Fs%2F1nWQdPRtGwNnOO2DkxRuGuA)  密码：i5d7
+
+然后把压缩包里面的![img](https://img-blog.csdnimg.cn/b9bc4da348c9471fb2fed1c076c5fe8b.png)移动到你自己环境（Anaconda或者其他)中，比如我的是Anaconda的bin在Bigdata里面
+
+最终还是要装个visual studio 2022估计是编译需要，很离谱，
+
+![img](https://img-blog.csdnimg.cn/86bab471ddba4cff8c13126506365ffd.png)

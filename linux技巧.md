@@ -9,7 +9,7 @@ kill PID
 
 kill -9 pid强制杀
 
-##### 文件
+#### 文件
 
 Linux下 ls查看目录，windows下是dir
 
@@ -18,8 +18,6 @@ ag 全局查找
 tree dir 目录结构
 rm -r dir
 rm *.txt
-
-
 
 #### vim
 
@@ -52,3 +50,13 @@ lspci | grep VGA
 #### 密码
 
 sudo passwd root 
+
+#### 环境变量
+
+env查看环境遍历
+
+echo $DISPLAY 输出值
+
+unset DISPLAY 删除环境变量
+
+export DISPLAY=:0.0 设置环境变量
