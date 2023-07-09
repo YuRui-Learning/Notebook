@@ -128,7 +128,32 @@ running_time = end-start
 print('time cost : %.5f sec' %running_time)
 ```
 
+# 进度条
 
+```text
+from tqdm import tqdm
+for i in tqdm(range(10000)):
+    ...
+```
+
+
+
+# Parser
+
+```text
+import argparse 
+
+parser = argparse.ArgumentParser(description='parser example')
+parser.add_argument('--seed', default=1, type=int, help='Random seed')
+parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
+parser.add_argument('--datapath', default='../../dataset/', type=str, help='dataset path')
+parser.add_argument('--resume', action='store_true', help='resume from checkpoint')
+
+args = parser.parse_args()
+print('1: ', args.lr)
+print('2: ', args.resume)
+print('3: ', args)
+```
 
 # 数学统计
 
@@ -275,6 +300,14 @@ conda install tensorflow==1.15.0
 #### 删除虚拟环境
 
 conda env remove --name Koopman
+
+# 解释器位置
+
+python
+
+import sys
+
+print(sys.executable/)
 
 # 库安装
 
