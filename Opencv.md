@@ -11,3 +11,8 @@
 flags=FLOODFILL_FIXED_RANGE表示无论背景如何都会填充
 
 flags=FLOODFILL_MASK_ONLY会根据背景中是否存在像素决定是否填充
+
+## findContours
+
+findContours( InputOutputArray image, OutputArrayOfArrays contours,OutputArray hierarchy, int mode,int method, Point offset=Point()) 用于检测物体轮廓
+

@@ -18,9 +18,17 @@ df -h
 
 free -h
 
+docker stats看容器的运存
+
 ### 当前目录大小
 
 du -sh du -ch（详细结果）
+
+### 软链
+
+```bash
+ln -s <source> <destination> 
+```
 
 ### 网络连接
 

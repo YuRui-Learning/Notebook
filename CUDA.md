@@ -8,6 +8,8 @@ nvidia-smi
 
 #### cuda
 
+cd /usr/local
+
 sudo vim ~/.bashrc
 
 ```bash

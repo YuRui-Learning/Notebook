@@ -44,6 +44,20 @@ apt-get install vim
 
 后启动service ssh restart 即为启动ssh服务
 
+### 如何域名进入
+
+
+
+`
+
+cd .ssh/
+
+vim config
+
+ssh-copy-id server1
+
+`
+
 #### ssh连接问题
 
 问题描述：开始是pycharm报bug：
@@ -79,3 +93,6 @@ scp命令需要在同一个子网网段内能够执行将一个ip内数据赋值
 
 scp root@172.17.2.42:/video.tar sport@172.17.2.22:/home/sport
 
+对于具体端口号的scp，需要在文件名前加-P大写与其具体端口号
+
+scp -P 30672 .tmux.conf root@region-41.seetacloud.com:

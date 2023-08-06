@@ -19,7 +19,11 @@ docker stop xx 关闭镜像
 
 docker attach xx 进入镜像所在内容中去
 
-docker rmi xx 删除容器
+docker kill 强制杀
+
+docker rm xx 删除容器
+
+docker rmi xxx 删除镜像
 
 sudo docker run --name video_1 -p 8022:22 --ipc=host --gpus all -it -v /d/Ray_code/04-13/HerculesModel:/home/sport/src aicregistry.azurecr.cn/video_school:v2.0.4 /bin/bash
 
@@ -135,3 +139,34 @@ export DISPLAY=:0.0 # 这个可以显示
 sudo apt-get install xarclock       *#安装这个小程序* 
 
 xarclock          *#运行，如果配置成功，会显示出一个小钟表动画*
+
+#### docker重启
+
+docker exec -it 0a730021d87e /bin/bash
+
+curl http://baidu-ide.bj.bcebos.com/platform/script/install-agent.sh | bash -s -- -g ddf7001c-8e17-47cf-8d09-2b15a77022f8 -c 5c64cf2571631fa5a278f64aba07ac61 -v 1.8.401.75.1.02 -p 48695
+
+#### docker镜像管理
+
+0a730021d87e -p 48695 个人开发机
+
+
+
+### docker 管理
+
+ 5000  root 2023/07/13 18:58:43 docker images
+ 5001  root 2023/07/13 18:59:00 docker images | grep gt
+ 5002  root 2023/07/13 18:59:19 docker images | grep gt
+ 5003  root 2023/07/13 18:59:46 docker tag 
+ 5004  root 2023/07/13 18:59:53 docker images | grep gt
+ 5005  root 2023/07/13 19:00:36 docker tag registry.baidubce.com/datahub/gt_3d:2.0.1 registry.baidubce.com/datahub/shuyi:1.0.0
+ 5006  root 2023/07/13 19:00:43 docker images | grep shuyi
+ 5007  root 2023/07/13 19:03:06 docker run -itd -v /root/shuyi_dataset:/cfsdata2 --gpus=all --shm-size=312g --net=host --name=shuyi_1 registry.baidubce.com/datahub/shuyi:1.0.0 /bin/bash
+ 5008  root 2023/07/13 19:03:38 docker ps | grep shuyi
+ 5009  root 2023/07/13 19:04:18 docker ps
+ 5010  root 2023/07/13 19:04:31 docker ps -a
+ 5011  root 2023/07/13 19:05:12 docker ps | grep shuyi
+ 5012  root 2023/07/13 19:05:35 docker exec -it 1b7bdfe4f8a6 /bin/bash
+ 5013  root 2023/07/13 19:10:20 ls
+ 5014  root 2023/07/13 19:10:26 docker ps | grep shuyi
+ 5015  root 2023/07/13 19:11:46 history
